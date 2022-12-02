@@ -33,6 +33,7 @@ public class Login extends HttpServlet
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
     {
+        //Hej med jer goo jull
         response.setContentType("text/html");
         HttpSession session = request.getSession();
         session.setAttribute("user", null); // invalidating user object in session scope
