@@ -14,17 +14,25 @@
 
     <jsp:body>
 
-        <p>Startcode for 2nd semester </p>
+        <p>EACH STEP COUNT</p>
 
-        <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
-        </c:if>
+        <div class="container mt-3">
+        <hr/>
+        <div class="row mt-4">
+        <div class="col">
 
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
-        </c:if>
+            <ul>
+                <h4>Carport</h4>
+                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp"><img src="${pageContext.request.contextPath}/images/Net-image/CarportMedTag.png" width="350px" height="300px" class="img-fluid"/></a>
+            </ul>
+        </div>
+        <div class="col">
 
+            <ul>
+                <h4>QuickByg</h4>
+                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp"><img src="${pageContext.request.contextPath}/images/Net-image/QuckByg.png" width="250px" height="200px" class="img-fluid"/></a>
+            </ul>
+        </div>
     </jsp:body>
 
 </t:pagetemplate>

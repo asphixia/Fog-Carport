@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Customer
+class User
+class Admin
+class Fog
+class Product
+class Ordre_line
+class ShoppingCart
+class ShippingInfo
+
+Customer --> User
+Customer --> Product
+User --> Product
+Fog --> Admin
+Admin --> User
+Product --> ShoppingCart
+User --> ShoppingCart
+ShoppingCart --> Ordre_line
+ShippingInfo <-- Ordre_line
+ShippingInfo --> User
+
+Fog : Ordre_line
+Fog : User id
+Fog : Customer info
+
+Admin : User info
+Admin : Ordre_line
+
+User : UserId
+
+
+Product : productId
+Product : name
+Product : price
+
+
+ShoppingCart : productId
+ShoppingCart : Dato
+
+@enduml
