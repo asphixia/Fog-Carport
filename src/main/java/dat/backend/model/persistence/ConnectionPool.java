@@ -14,8 +14,8 @@ public class ConnectionPool
 
     private HikariDataSource ds;
     private static String USER = "root";
-    private static String PASSWORD = "root";
-    private static String URL = "jdbc:mysql://localhost:3306/startcode";
+    private static String PASSWORD = "william2450";
+    private static String URL = "jdbc:mysql://localhost:3306/carport";
 
     public ConnectionPool()
     {
@@ -44,7 +44,8 @@ public class ConnectionPool
         config.addDataSourceProperty("cachePrepStmts", "true");
         config.addDataSourceProperty("prepStmtCacheSize", "250");
         config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
-        this.ds = new HikariDataSource(config);
+        this.ds = new
+                HikariDataSource(config);
     }
 
     public Connection getConnection() throws SQLException
