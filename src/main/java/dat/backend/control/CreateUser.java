@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet(name = "createUser", urlPatterns = {"/createUser"} )
+@WebServlet(name = "ecreateUser", urlPatterns = {"/createUser"} )
 public class CreateUser extends HttpServlet {
     private ConnectionPool connectionPool;
     @Override
@@ -40,12 +40,10 @@ public class CreateUser extends HttpServlet {
 
         try {
             user = UserMapper.createUser(email, password, balance, userrole , address, tlfNmr);
-
+            
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
-
-
 }

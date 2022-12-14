@@ -42,6 +42,7 @@ public class UserMapper
                 }
             }
         } catch (SQLException ex)
+
         {
             throw new DatabaseException(ex, "Error logging in. Something went wrong with the database");
         }

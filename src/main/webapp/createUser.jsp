@@ -22,7 +22,7 @@
             <label for="password">Create password: </label><br>
             <input type="text" id="password" name="password"/><br>
             <label for="userrole">Enter Role: </label><br>
-            <input type="userrole" id="userrole" name="userrole"/><br>
+        h    <input type="userrole" id="userrole" name="userrole"/><br>
             <label for="balance">Insert Balance: </label><br>
             <input type="number" id="balance" name="balance"/><br>
             <input type="submit" value="CreateUser"/><br>

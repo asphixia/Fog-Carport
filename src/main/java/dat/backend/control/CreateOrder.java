@@ -37,15 +37,11 @@ public class CreateOrder extends HttpServlet {
         int userId = Integer.parseInt(request.getParameter("userId"));
         int price = Integer.parseInt(request.getParameter("price"));
         int productId = Integer.parseInt(request.getParameter("produckid"));
-        //long timeStamp = Long.parseLong(request.getParameter("orderTime"));
+        Timestamp timeStamp = new Timestamp(System.currentTimeMillis());
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
-        //try {
-          //  order = OrderMapper.createOrder(orderId, userId, price, productId, timeStamp, length, width);
+        order = OrderMapper.createOrder(orderId, userId, price, productId, timeStamp, length, width);
 
-        //} catch (DatabaseException e) {
-          //  e.printStackTrace();
-        //}
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 

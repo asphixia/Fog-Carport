@@ -1,17 +1,19 @@
 package dat.backend.model.entities;
 
+import java.sql.Timestamp;
+
 public class Order {
     int orderId;
     int userId;
     int price;
     int producktId;
-    int orderDate;
+    Timestamp orderDate;
     int length;
     int width;
 
 
 
-    public Order(int orderId, int userId, int price, int producktId, int orderDate, int length, int width) {
+    public Order(int orderId, int userId, int price, int producktId, Timestamp orderDate, int length, int width) {
         this.orderId = orderId;
         this.userId = userId;
         this.price = price;
@@ -53,11 +55,11 @@ public class Order {
         this.producktId = producktId;
     }
 
-    public int getOrderDate() {
+    public Timestamp getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(int orderDate) {
+    public void setOrderDate(Timestamp orderDate) {
         this.orderDate = orderDate;
     }
 

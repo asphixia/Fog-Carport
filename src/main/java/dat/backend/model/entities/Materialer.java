@@ -21,6 +21,7 @@ public class Materialer {
         this.typeId = typeId;
     }
 
+
     public int getMaterialeId() {
         return materialeId;
     }
