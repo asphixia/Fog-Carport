@@ -1,0 +1,58 @@
+@startuml
+Title Carport
+|customer|
+start
+:Go to website (k1);
+|website|
+:show produkt]
+:chose carport]
+:Log ind;
+repeat
+:Enter credentials;
+repeat while (credentials true?) is (no)
+->yes;
+|website|
+:ordre carport]
+:pay;
+repeat
+:Enter credentials;
+repeat while (credentials true?) is (no)
+->yes;
+
+|website|
+:save ordre;
+:make receipt;
+
+fork
+|customer|
+:recive receipt;
+:recive styklist;
+
+fork again
+|pakkelabels|
+:get ordre;
+:make labels;
+
+|customer|
+:recive labels;
+
+fork again
+|Fog|
+:get ordre;
+:approve ordre;
+:sender ordre;
+|lagret|
+:modtager ordre;
+:pakker ordre;
+:carport ready]
+:sender;
+|pakkelabels|
+:get carport]
+
+|customer|
+:modtager carport]
+end fork
+
+
+stop
+@enduml
