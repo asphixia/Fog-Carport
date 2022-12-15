@@ -4,35 +4,37 @@ import java.util.Objects;
 
 public class User
 {
-    private String email;
+    private String username;
     private String password;
     private String role;
-    private int balance;
-    private String address;
+    private String name;
+    private String adresse;
+    private String email;
     private int tlfNmr;
 
 
 
-    public User(String email, String password, String role, int balance, String address, int tlfNmr)
+    public User(String username, String password, String role, String name, String adresse,String email, int tlfNmr)
     {
-        this.email = email;
+        this.username = username;
         this.password = password;
         this.role = role;
-        this.balance = balance;
-        this.address = address;
+        this.name = name;
+        this.adresse = adresse;
+        this.email = email;
         this.tlfNmr = tlfNmr;
 
     }
 
 
-    public String getEmail()
+    public String getUsername()
     {
-        return email;
+        return username;
     }
 
-    public void setEmail(String email)
+    public void setUsername(String email)
     {
-        this.email = email;
+        this.username = email;
     }
 
     public String getPassword()
@@ -45,6 +47,7 @@ public class User
         this.password = password;
     }
 
+
     public String getRole()
     {
         return role;
@@ -55,21 +58,34 @@ public class User
         this.role = role;
     }
 
-    public int getBalance(){
-        return balance;
+    public String getName() {
+        return name;
     }
-    public void setBalance(int balance){
-        this.balance = balance;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public String getAddress(){
-        return address;
+
+    public String getAdresse(){
+        return adresse;
     }
-    public void setAddress(String address){
-        this.address = address;
+
+    public void setAddress(String adresse){
+        this.adresse = adresse;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public int getTlfNmr(){
         return tlfNmr;
     }
+
     public void setTlfNmr(int tlfNmr){
         this.tlfNmr = tlfNmr;
     }
@@ -81,24 +97,25 @@ public class User
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return getEmail().equals(user.getEmail()) && getPassword().equals(user.getPassword()) &&
+        return getUsername().equals(user.getUsername()) && getPassword().equals(user.getPassword()) &&
                 getRole().equals(user.getRole());
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(getEmail(), getPassword(), getRole(), getBalance(), getAddress(), getTlfNmr());
+        return Objects.hash(getUsername(), getPassword(), getRole(), getName(), getAdresse(), getEmail(), getTlfNmr());
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "email='" + email + '\'' +
+                "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
-                ", balance=" + balance +
-                ", address='" + address + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + adresse + '\'' +
+                ", email='" + email + '\'' +
                 ", tlfNmr=" + tlfNmr +
                 '}';
     }

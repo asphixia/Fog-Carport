@@ -31,15 +31,16 @@ public class CreateUser extends HttpServlet {
         session.setAttribute("user", null); // invalidating user object in session scope
         UserMapper userMapper = new UserMapper(connectionPool);
         User user;
-        String email = request.getParameter("username");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
         String userrole = request.getParameter("userrole");
-        int balance = Integer.parseInt(request.getParameter("balance"));
-        String address = request.getParameter("address");
+        String name = request.getParameter("name");
+        String adresse = request.getParameter("adresse");
+        String email = request.getParameter("email");
         int tlfNmr = Integer.parseInt(request.getParameter("tlfNmr"));
 
         try {
-            user = UserMapper.createUser(email, password, balance, userrole , address, tlfNmr);
+            user = UserMapper.createUser(username, password, userrole, name, adresse, email, tlfNmr);
 
         } catch (DatabaseException e) {
             e.printStackTrace();
