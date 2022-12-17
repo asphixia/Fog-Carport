@@ -49,7 +49,7 @@ public class UserMapper
         return user;
     }
 
-    public static User createUser(String username, String password, String role, String name, String adresse, String email, int tlfNmr) throws DatabaseException
+    public static User createUser(String username, String password, String role, String name, String adresse, String email, int tlf) throws DatabaseException
     {
         Logger.getLogger("web").log(Level.INFO, "");
         User user = null;
@@ -64,10 +64,10 @@ public class UserMapper
                 ps.setString(4, name);
                 ps.setString(5, adresse);
                 ps.setString(6, email);
-                ps.setInt(7, tlfNmr);
+                ps.setInt(7, tlf);
                 int rowsAffected = ps.executeUpdate();
                 if(rowsAffected == 1){
-                    user = new User(username, password, role, name, adresse, email, tlfNmr);
+                    user = new User(username, password, role, name, adresse, email,tlf);
                 }else{
                     throw new DatabaseException("The user with username = " + username + " could not be inserted into the database");
                 }

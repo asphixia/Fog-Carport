@@ -10,11 +10,11 @@ public class User
     private String name;
     private String adresse;
     private String email;
-    private int tlfNmr;
+    private int tlf;
 
 
 
-    public User(String username, String password, String role, String name, String adresse,String email, int tlfNmr)
+    public User(String username, String password, String role, String name, String adresse,String email, int tlf)
     {
         this.username = username;
         this.password = password;
@@ -22,7 +22,7 @@ public class User
         this.name = name;
         this.adresse = adresse;
         this.email = email;
-        this.tlfNmr = tlfNmr;
+        this.tlf = tlf;
 
     }
 
@@ -82,12 +82,12 @@ public class User
         this.email = email;
     }
 
-    public int getTlfNmr(){
-        return tlfNmr;
+    public int getTlf(){
+        return tlf;
     }
 
-    public void setTlfNmr(int tlfNmr){
-        this.tlfNmr = tlfNmr;
+    public void setTlf(int tlf){
+        this.tlf = tlf;
     }
 
 
@@ -104,7 +104,7 @@ public class User
     @Override
     public int hashCode()
     {
-        return Objects.hash(getUsername(), getPassword(), getRole(), getName(), getAdresse(), getEmail(), getTlfNmr());
+        return Objects.hash(getUsername(), getPassword(), getRole(), getName(), getAdresse(), getEmail(), getTlf());
     }
 
     @Override
@@ -116,7 +116,7 @@ public class User
                 ", name='" + name + '\'' +
                 ", address='" + adresse + '\'' +
                 ", email='" + email + '\'' +
-                ", tlfNmr=" + tlfNmr +
+                ", tlfNmr=" + tlf +
                 '}';
     }
 }

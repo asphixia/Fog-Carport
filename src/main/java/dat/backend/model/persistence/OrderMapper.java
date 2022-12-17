@@ -15,7 +15,7 @@ public class OrderMapper {
         this.connectionPool = connectionPool;
     }
 
-    public static Order createOrder(int orderId, int userId, int price, int producktId, Timestamp orderDate, int length, int width) {
+    public static OrderMapper(int orderId, int userId, int price, int producktId, Timestamp orderDate, int length, int width) {
         Logger.getLogger("web").log(Level.INFO, "");
         Order order = null;
         String sql = "INSERT INTO `order` (orderId, userId, price, productId, ordreDate, length , width) VALUES (?,?,?,?,?,?,?)";

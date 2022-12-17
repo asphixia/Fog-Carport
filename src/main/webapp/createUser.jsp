@@ -19,12 +19,25 @@
         <form action="createUser" method="post">
             <label for="username">Create Username: </label><br>
             <input type="text" id="username" name="username"><br>
+
             <label for="password">Create password: </label><br>
             <input type="text" id="password" name="password"/><br>
+
             <label for="userrole">Enter Role: </label><br>
-        h    <input type="userrole" id="userrole" name="userrole"/><br>
-            <label for="balance">Insert Balance: </label><br>
-            <input type="number" id="balance" name="balance"/><br>
+            <input type="text" id="userrole" name="userrole"/><br>
+
+            <label for="name">Enter name: </label><br>
+            <input type="text" id="name" name="name"/><br>
+
+            <label for="adresse">Enter adresse: </label><br>
+            <input type="text" id="adresse" name="adresse"/><br>
+
+            <label for="email">Enter Email: </label><br>
+            <input type="text" id="email" name="email"/><br>
+
+            <label for="tlf">Enter tlf: </label><br>
+            <input type="number" id="tlf" name="tlf"/><br>
+
             <input type="submit" value="CreateUser"/><br>
         </form>
 

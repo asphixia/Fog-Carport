@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet(name = "ecreateUser", urlPatterns = {"/createUser"} )
+@WebServlet(name = "createUser", urlPatterns = {"/createUser"} )
 public class CreateUser extends HttpServlet {
     private ConnectionPool connectionPool;
     @Override
@@ -33,15 +33,15 @@ public class CreateUser extends HttpServlet {
         User user;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String userrole = request.getParameter("userrole");
+        String role = request.getParameter("role");
         String name = request.getParameter("name");
         String adresse = request.getParameter("adresse");
         String email = request.getParameter("email");
-        int tlfNmr = Integer.parseInt(request.getParameter("tlfNmr"));
+        int tlf = Integer.parseInt(request.getParameter("tlf"));
 
         try {
 
-            user = UserMapper.createUser(username, password, userrole, name, adresse, email, tlfNmr);
+            user = UserMapper.createUser(username, password, role, name, adresse, email, tlf);
 
         } catch (DatabaseException e) {
             e.printStackTrace();
