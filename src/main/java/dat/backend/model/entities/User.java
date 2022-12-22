@@ -7,22 +7,34 @@ public class User
     private String username;
     private String password;
     private String role;
+    private String name;
+    private String adresse;
+    private String email;
+    private int tlf;
 
-    public User(String username, String password, String role)
+
+
+    public User(String username, String password, String role, String name, String adresse,String email, int tlf)
     {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.name = name;
+        this.adresse = adresse;
+        this.email = email;
+        this.tlf = tlf;
+
     }
+
 
     public String getUsername()
     {
         return username;
     }
 
-    public void setUsername(String username)
+    public void setUsername(String email)
     {
-        this.username = username;
+        this.username = email;
     }
 
     public String getPassword()
@@ -35,6 +47,7 @@ public class User
         this.password = password;
     }
 
+
     public String getRole()
     {
         return role;
@@ -44,6 +57,39 @@ public class User
     {
         this.role = role;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAdresse(){
+        return adresse;
+    }
+
+    public void setAddress(String adresse){
+        this.adresse = adresse;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getTlf(){
+        return tlf;
+    }
+
+    public void setTlf(int tlf){
+        this.tlf = tlf;
+    }
+
 
     @Override
     public boolean equals(Object o)
@@ -58,16 +104,19 @@ public class User
     @Override
     public int hashCode()
     {
-        return Objects.hash(getUsername(), getPassword(), getRole());
+        return Objects.hash(getUsername(), getPassword(), getRole(), getName(), getAdresse(), getEmail(), getTlf());
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "User{" +
-                "brugerNavn='" + username + '\'' +
-                ", kodeord='" + password + '\'' +
-                ", rolle='" + role + '\'' +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + adresse + '\'' +
+                ", email='" + email + '\'' +
+                ", tlfNmr=" + tlf +
                 '}';
     }
 }

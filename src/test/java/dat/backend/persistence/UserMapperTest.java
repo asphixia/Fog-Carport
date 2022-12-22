@@ -1,5 +1,5 @@
 package dat.backend.persistence;
-// LOL//
+
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
@@ -20,7 +20,7 @@ class UserMapperTest
 
     private final static String USER = "root";
     private final static String PASSWORD = "root";
-    private final static String URL = "jdbc:mysql://localhost:3306/startcode_test?serverTimezone=CET&allowPublicKeyRetrieval=true&useSSL=false";
+    private final static String URL = "jdbc:mysql://localhost:3306/carport_test?serverTimezone=CET&allowPublicKeyRetrieval=true&useSSL=false";
 
     private static ConnectionPool connectionPool;
 
@@ -34,10 +34,10 @@ class UserMapperTest
             try (Statement stmt = testConnection.createStatement())
             {
                 // Create test database - if not exist
-                stmt.execute("CREATE DATABASE  IF NOT EXISTS startcode_test;");
+                stmt.execute("CREATE DATABASE  IF NOT EXISTS carport_test;");
 
                 // TODO: Create user table. Add your own tables here
-                stmt.execute("CREATE TABLE IF NOT EXISTS startcode_test.user LIKE startcode.user;");
+                stmt.execute("CREATE TABLE IF NOT EXISTS carport_test.user LIKE carport.user;");
             }
         }
         catch (SQLException throwables)
@@ -83,7 +83,8 @@ class UserMapperTest
     @Test
     void login() throws DatabaseException
     {
-        User expectedUser = new User("user", "1234", "user");
+
+        User expectedUser = new User("user", "1234", "user", "emil jensen", "københavn", "1234@gmail.com", 20202020);
         User actualUser = UserFacade.login("user", "1234", connectionPool);
         assertEquals(expectedUser, actualUser);
     }
@@ -103,9 +104,11 @@ class UserMapperTest
     @Test
     void createUser() throws DatabaseException
     {
-        User newUser = UserFacade.createUser("jill", "1234", "user", connectionPool);
+        User newUser = UserFacade.createUser("william", "1234", "user", "william hansen", "københavn", "williwm@.dk", 30303030,  connectionPool);
         User logInUser = UserFacade.login("jill", "1234", connectionPool);
-        User expectedUser = new User("jill", "1234", "user");
+
+        User expectedUser = new User("emil", "12345", "user", "emil jensen", "københavn", "1234@k.dk", 40404040);
+
         assertEquals(expectedUser, newUser);
         assertEquals(expectedUser, logInUser);
 
