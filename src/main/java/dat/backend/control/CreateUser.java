@@ -33,11 +33,12 @@ public class CreateUser extends HttpServlet {
         User user;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String role = request.getParameter("role");
         String name = request.getParameter("name");
         String adresse = request.getParameter("adresse");
         String email = request.getParameter("email");
         int tlf = Integer.parseInt(request.getParameter("tlf"));
+        String role = "user";
+
 
         try {
 

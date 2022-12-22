@@ -1,26 +1,28 @@
 package dat.backend.model.entities;
 
 public class Materialer {
+
     private int materialeId;
     private String name;
-    private int length;
-    private int height;
-    private int width;
-    private int price;
-    private int quantity;
-    private int typeId;
+    private String unit;
+    private int price_per_unit;
 
-    public Materialer(int materialeId, String name, int length, int height, int width, int price, int quantity, int typeId) {
+    public Materialer(int materialeId, String name, String unit, int price_per_unit) {
         this.materialeId = materialeId;
         this.name = name;
-        this.length = length;
-        this.height = height;
-        this.width = width;
-        this.price = price;
-        this.quantity = quantity;
-        this.typeId = typeId;
+        this.unit = unit;
+        this.price_per_unit = price_per_unit;
     }
 
+    public Materialer(String name, String unit, int price_per_unit) {
+        this.name = name;
+        this.unit = unit;
+        this.price_per_unit = price_per_unit;
+    }
+
+    public Materialer() {
+
+    }
 
     public int getMaterialeId() {
         return materialeId;
@@ -38,52 +40,20 @@ public class Materialer {
         this.name = name;
     }
 
-    public int getLength() {
-        return length;
+    public String getUnit() {
+        return unit;
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
-    public int getHeight() {
-        return height;
+    public int getPrice_per_unit() {
+        return price_per_unit;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(int typeId) {
-        this.typeId = typeId;
+    public void setPrice_per_unit(int price_per_unit) {
+        this.price_per_unit = price_per_unit;
     }
 
     @Override
@@ -91,12 +61,8 @@ public class Materialer {
         return "Materialer{" +
                 "materialeId=" + materialeId +
                 ", name='" + name + '\'' +
-                ", length=" + length +
-                ", height=" + height +
-                ", width=" + width +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                ", typeId=" + typeId +
+                ", unit='" + unit + '\'' +
+                ", price_per_unit=" + price_per_unit +
                 '}';
     }
 }

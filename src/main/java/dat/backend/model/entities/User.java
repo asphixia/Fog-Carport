@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class User
 {
+    public static String getUsername;
     private String username;
     private String password;
     private String role;

@@ -53,7 +53,7 @@ public class UserMapper
     {
         Logger.getLogger("web").log(Level.INFO, "");
         User user = null;
-        String sql = "insert into user (username, password, role, name, adresse, email, tlf ) values (?,?,?,?,?,?,?)";
+        String sql = "insert into carport.user (username, password, role , name, adresse, email, tlf ) values (?,?,?,?,?,?,?)";
         try (Connection connection = connectionPool.getConnection())
         {
             try (PreparedStatement ps = connection.prepareStatement(sql))

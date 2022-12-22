@@ -10,8 +10,18 @@ public class Order {
     Timestamp orderDate;
     int length;
     int width;
+    int r_width;
+    int r_lengthe;
+    String username;
 
+    public Order(int length, int width, int r_width, int r_lengthe) {
+        this.username = username;
+        this.length = length;
+        this.width = width;
+        this.r_width = r_width;
+        this.r_lengthe = r_lengthe;
 
+    }
 
     public Order(int orderId, int userId, int price, int producktId, Timestamp orderDate, int length, int width) {
         this.orderId = orderId;
@@ -22,6 +32,7 @@ public class Order {
         this.length = length;
         this.width = width;
     }
+
 
     public int getOrderId() {
         return orderId;

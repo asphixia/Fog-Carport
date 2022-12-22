@@ -21,15 +21,19 @@ public class ShoppingCart
     {
         return carportList.size();
     }
-
     public List<Carport> getCarportList()
     {
         return carportList;
     }
+
 
     public void resetCart()
     {
         carportList.clear();
     }
 
+    public Carport getLastCarport() {
+
+        return carportList.get(carportList.size()-1);
+    }
 }
