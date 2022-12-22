@@ -48,7 +48,7 @@ public class Calculator {
 
     }
 
-    public int frontAndBackRemAntal() {
+    public int udregnfrontAndBackRemAntal() {
 
         int frontAndBackRem = 2;
 
