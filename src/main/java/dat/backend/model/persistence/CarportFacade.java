@@ -1,12 +1,10 @@
 package dat.backend.model.persistence;
 
 
-import dat.backend.model.entities.Carport;
-import dat.backend.model.entities.Order;
-import dat.backend.model.entities.ShoppingCart;
-import dat.backend.model.entities.User;
+import dat.backend.model.entities.*;
 
 import java.util.List;
+import java.util.Map;
 
 public class CarportFacade
 {
@@ -19,6 +17,12 @@ public class CarportFacade
     public static void creatOrder(User user,ShoppingCart cart,ConnectionPool connectionPool)
     {
         CarportMapper.creatOrder(user,cart,connectionPool);
+    }
+
+    public static Map<Integer, Materialer> getMaterialMap(ConnectionPool connectionPool)
+    {
+        return CarportMapper.getMaterialMap(connectionPool);
+
     }
 
 

@@ -40,7 +40,6 @@ public class MaterialeMap extends HttpServlet
 
 
 
-        request.getServletContext().setAttribute("materialerMap", materialerMap);
 
         String sql = "select * from carport.materialer";
 
@@ -62,20 +61,22 @@ public class MaterialeMap extends HttpServlet
 
                 materialerMap.put(materiale_id, materialer);
 
-                getServletContext().setAttribute("materialerMap",materialerMap);
-
-
-                System.out.println(materialerMap);
 
 
 
-              request.getRequestDispatcher("WEB-INF/tags/matrialeMap.jsp").forward(request,response);
+
+
+
                 /*System.out.println("materiale_id" + materiale_id);
                 System.out.println("name" + name);
                 System.out.println("unit" + unit);
                 System.out.println("price_pr_unit" + price_per_unit);*/
 
             }
+            getServletContext().setAttribute("materialerMap",materialerMap);
+
+            System.out.println(materialerMap);
+            request.getRequestDispatcher("WEB-INF/tags/matrialeMap.jsp").forward(request,response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

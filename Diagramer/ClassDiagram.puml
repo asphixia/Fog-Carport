@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/class-diagram
+class AddToCart
+class HttpServlet
+class CreateUser
+class Carport
+class ShoppingCart
+
+
+HttpServlet <|-- AddToCart
+HttpServlet <|-- CreateUser : is-a
+ShoppingCart --* Carport : has-a
+
+Carport : -int width
+Carport : +int getWidth()
+Carport : +Carport(int width, int lenghte, int r_width, int r_lenght)
+
+ShoppingCart : List<Carport>
+
+@enduml

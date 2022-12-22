@@ -25,10 +25,10 @@ public class Calculator {
 
     }
 
-    public int udregnStolpeAntal(int længde) {
+    public int udregnStolpeAntal(int lengthe) {
 
 
-        if (længde >= 7.8) {
+        if (lengthe >= 7.8) {
 
             stolpeAntal = 6;
         } else {
@@ -39,10 +39,10 @@ public class Calculator {
     }
 
 
-    public int udregnSpærAntal(int længde) {
+    public int udregnSpærAntal(int lengthe) {
 
 
-        spærAntal = (int) Math.ceil(længde / 0.55);
+        spærAntal = (int) Math.ceil(lengthe / 0.55);
 
         return spærAntal;
 
@@ -110,37 +110,37 @@ public class Calculator {
 
         //return price;.getAttribute("materiale_Id", 4)
     }
-/*
-    public int udregnSpærPrice() {
+
+    public int udregnSpærPrice(int lengthe) {
 
         int unitPriceSpær = materialeMap.get(1).getPrice_per_unit();
 
-        int spærPrice = (spærAntal * //Carport_længde) * unitPriceSpær;
+        int spærPrice = (spærAntal * lengthe) * unitPriceSpær;
 
         return spærPrice;
     }
 
-    public int remFrontogBack(){
+    public int remFrontogBack(int width){
 
         int unitPriceRem = materialeMap.get(1).getPrice_per_unit();
 
-        int remPrice = (2 * Carport_bredde) * unitPriceRem;
+        int remPrice = (2 * width) * unitPriceRem;
 
         return remPrice;
     }
 
-    public int remSide(){
+    public int remSide(int width){
 
         int unitPriceRemSide = materialeMap.get(1).getPrice_per_unit();
-        int remSidePrice = 2 * Carport_længde * unitPriceRemSide;
+        int remSidePrice = 2 * width * unitPriceRemSide;
 
         return remSidePrice;
     }
 
-    public int remSpær(){
+    public int remSpær(int width){
 
         int unitPriceRemSpær = materialeMap.get(1).getPrice_per_unit();
-        int remSpærPrice = 2 * Carport_længde * unitPriceRemSpær;
+        int remSpærPrice = 2 * width * unitPriceRemSpær;
         return remSpærPrice;
     }
 
@@ -149,7 +149,6 @@ public class Calculator {
         int carportPrice = stolpePrice+stolpeAntal;
         return carportPrice;
     }
-    */
 }
 
 

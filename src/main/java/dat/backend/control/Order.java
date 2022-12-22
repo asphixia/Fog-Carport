@@ -34,12 +34,19 @@ public class Order extends HttpServlet {
 
         CarportFacade.creatOrder(user, cart, connectionPool);
 
-
+        ServletContext sc =  getServletContext();
         Map<Integer, Materialer> materialerMap = (Map<Integer, Materialer>) getServletContext().getAttribute("materialeMap");
+        if (materialerMap == null)
+        {
+            materialerMap = CarportFacade.getMaterialMap(connectionPool);
+            getServletContext().setAttribute("materialerMap",materialerMap);
+        }
         Calculator calculator = new Calculator(materialerMap);
         int value = calculator.udregnStolpeAntal(cart.getLastCarport().getLenghte());
         System.out.println(value);
         int value2 = calculator.udregnStolpePrice();
+        int value3 = calculator.udregnfrontAndBackRemAntal();
+        int value4 = calculator.remFrontogBack(cart.getLastCarport().getWidth());
 
         //System.out.println(calculator);
         // calculator.antalSkruer();
