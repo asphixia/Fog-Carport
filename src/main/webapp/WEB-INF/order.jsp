@@ -5,47 +5,46 @@
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate>
-    <jsp:attribute name="header">
-         Welcome to the logged in area
-    </jsp:attribute>
-
-    <jsp:attribute name="footer">
-        Logged in area
-    </jsp:attribute>
 
     <jsp:body>
+        <div class="text-center">
+            <h2>Din Kurv</h2>
+            <br>
+            <br>
 
-      <h2>Det virker du</h2>
-        <br>
-        <br>
-
-        Antal linier i kurven: ${requestScope.cartsize}
-
-        <br>
-        <br>
-        <br>
-        Indhold i kurv:
-
-        <c:forEach var="item" items="${sessionScope.cart.carportList}">
-
-            Width:    ${item.width}      length:    ${item.lenghte}
-            r_width:  ${item.r_width}    r_length:  ${item.r_lenght}
+            <h2>Din bestillinge er</h2>
 
 
-        </c:forEach>
+            <div class="w3-container w3-blue">
 
-        <div class="container mt-3">
-            <hr/>
-            <div class="row mt-4">
-                <div class="col">
-                    <form action="order">
-                        <button name="order">Bestil</button>
-                    </form>
-                </div>
-                <div class="col">
-                    <form action="welcome">
-                        <button name="Back">Back</button>
-                    </form>
+                Carport Bredde på : ${sessionScope.cart.lastCarport.width} meter
+                <br>
+                Carport Længde på : ${sessionScope.cart.lastCarport.lenghte} meter
+                <br>
+                Redskabsrum bredde på : ${sessionScope.cart.lastCarport.r_width} meter
+                <br>
+                Redskabsrum Længde på : ${sessionScope.cart.lastCarport.r_lenght} meter
+                <br>
+                Total Price: ${sessionScope.price} KR
+                <br>
+
+
+            </div>
+
+
+            <div class="container mt-3">
+                <hr/>
+                <div class="row mt-4">
+                    <div class="col">
+                        <form action="#">
+                            <button name="order">Betal</button>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <form action="welcome">
+                            <button name="Back">Back</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

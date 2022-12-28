@@ -4,10 +4,15 @@ import java.sql.Timestamp;
 
 public class Carport {
 
+    public double price;
     private int width;
     private int lenghte;
     private int r_width;
     private int r_lenght;
+
+    public Carport(double price) {
+        this.price = price;
+    }
 
     public Carport(int width, int lenghte, int r_width, int r_lenght) {
 
@@ -17,7 +22,13 @@ public class Carport {
         this.r_lenght = r_lenght;
     }
 
+    public double getPrice() {
+        return price;
+    }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public int getWidth() {
         return width;
@@ -54,7 +65,8 @@ public class Carport {
     @Override
     public String toString() {
         return "Carport{" +
-                "width=" + width +
+                "price=" + price +
+                ", width=" + width +
                 ", lenghte=" + lenghte +
                 ", r_width=" + r_width +
                 ", r_lenght=" + r_lenght +

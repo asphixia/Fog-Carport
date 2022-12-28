@@ -4,13 +4,7 @@
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate>
-    <jsp:attribute name="header">
-         Welcome to the logged in area
-    </jsp:attribute>
 
-    <jsp:attribute name="footer">
-        Logged in area
-    </jsp:attribute>
 
     <jsp:body>
 
@@ -39,8 +33,6 @@
                                     <option value="11">540 cm</option>
                                     <option value="12">570 cm</option>
                                     <option value="13">600 cm</option>
-                                    <option value="14">630 cm</option>
-                                    <option value="15">660 cm</option>
                                 </optgroup>
                             </select>
                         </div>
@@ -141,37 +133,33 @@
                                         <label for="Fog">Fog må benytte de afgivne oplysninger til at kontakte
                                             mig</label><br>
                                         <label for="fog">i forbindelse med tilbud på QuickByg carport*</label>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="container mt-3">
-                        <hr/>
-                        <div class="row mt-3">
-                            <div class="col">
-                                    <button name="AddToCart" class="btn btn-primary">AddToCart</button>
-                                </form>
-
-                            </div>
-                            <div class="col">
-                                <form action="order" method="post">
-                                    <button name="SeeCart">See Cart</button>
-                                </form>
-                            </div>
-                            <div class="col">
-                                <form action="order">
-                                    <button name="Order" style="background-color: red">Bestil</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </table>
-            </form>
         </div>
         <br>
 
+        <div class="container mt-3">
+            <div class="text-center">
+            <hr/>
+            <div class="row mt-3">
+                <div class="col">
+                    <button name="AddToCart" class="btn btn-primary">AddToCart</button>
+                    </form>
 
+                </div>
+                <div class="col">
+                    <form action="order">
+                        <button name="Order" class="btn btn-primary">See Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+        </form>
+        </div>
+        <br>
 
 
         Antal linier i kurven: ${requestScope.cartsize}
@@ -179,13 +167,13 @@
         <br>
         <br>
         <br>
-        Indhold i kurv:
 
+        Indhold i kurven :
         <c:forEach var="item" items="${sessionScope.cart.carportList}">
 
-            Width:    ${item.width}      length:    ${item.lenghte}
-            r_width:  ${item.r_width}    r_length:  ${item.r_lenght}
-
+            Bredde : ${item.width} Længde : ${item.lenghte}  RedskabsrumBredde : ${item.r_width} RedskabsrumLængde : ${item.r_lenght}
+            <br>
+            <br>
 
         </c:forEach>
 

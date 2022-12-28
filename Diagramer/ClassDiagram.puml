@@ -1,20 +1,199 @@
 @startuml
-'https://plantuml.com/class-diagram
+
+class Carport
+
 class AddToCart
-class HttpServlet
 class CreateUser
+class MaterialeMap
+class OrderServlet
+class Welcome
+class HttpServlet
+
 class Carport
 class ShoppingCart
+class Calculator
+class CarportFacade
+class CarportMapper
+class UserFacade
+class UserMapper
+class OrderMapper
+class User
+class Styklist
+class Order
+class Materialer
+class Item
 
 
-HttpServlet <|-- AddToCart
+HttpServlet <|-- AddToCart : is-a
 HttpServlet <|-- CreateUser : is-a
+HttpServlet <|-- MaterialeMap : is-a
+HttpServlet <|-- OrderServlet : is-a
+HttpServlet <|-- welcome : is-a
+
 ShoppingCart --* Carport : has-a
+Carport --* Calculator: has-a
+Carport --* Item: has-a
+Carport --* Materialer:has-a
+User --* ShoppingCart:has-a
+Order--*User:has-a
+Carport --* User:has-a
+Welcome --*CarportFacade:has-a
+CarportFacade --*CarportMapper:has-a
+CarportMapper --*Carport:has-a
+Order --*Carport:has-a
+
+
 
 Carport : -int width
+Carport : -int length
+Carport : -int r_width
+Carport : -int r_length
 Carport : +int getWidth()
-Carport : +Carport(int width, int lenghte, int r_width, int r_lenght)
+Carport : +void setWidth(int width)
+Carport : +int getLength()
+Carport : +void setlength(int length)
+Carport : +int getR_width()
+Carport : +void setR_width(int r_width)
+Carport : +int getR_length()
+Carport : +void setR_length(int r_length)
+Carport : +Carport(int width, int length)
+
 
 ShoppingCart : List<Carport>
+
+
+
+Item : int stykList_id
+Item : int ordre_id
+Item : int quantity
+Item : int item_price
+Item : Materialer materialer
+Item : String description
+Item : Item()
+Item : getStyklist_id()
+Item : setStykList_id()
+Item : getOrdre_id()
+Item : getMaterialer()
+Item : setMaterialer()
+Item : getQuantity()
+Item : getItem_price()
+Item : setItem_price()
+Item : getDescription()
+Item : setDescription()
+
+
+Materialer : int materialeId
+Materialer : String name
+Materialer : String unit
+Materialer : int price_per_unit
+Materialer : Materialer()
+Materialer : getMaterialeId()
+Materialer : setMaterialeId
+Materialer : getName()
+Materialer : setName()
+Materialer : getUnit()
+Materialer : setUnit()
+Materialer : getPrice_per_unit()
+Materialer : setPrice_per_unit()
+Materialer : toString()
+
+Order : int orderId
+Order : int userId
+Order : int price
+Order : int producktId
+Order : Timestamp orderDate
+Order : int length
+Order : int width
+Order : int r_width
+Order : int r_lengthe
+Order : String username
+Order : Order()
+Order : getOrderId()
+Order : setOrderId()
+Order : getUserId()
+Order : setUserId()
+Order : getPrice()
+Order : setPrice()
+Order : getProducktId()
+Order : setProducktId()
+Order : getOrderDate()
+Order : setOrderDate()
+Order : getLength()
+Order : setLength()
+Order : getWidth()
+Order : setWidth()
+
+CarportFacade : List<Carport> Carport
+CarportFacade : creatOrder()
+CarportFacade : Carport()
+
+
+Calculator : int stolpeAntal
+Calculator : int stolpePrice
+Calculator : int spærAntal
+Calculator : int spærPrice
+Calculator : int remSidePrice
+Calculator : int remPrice
+Calculator : int remSpærPrice
+Calculator : -Map<Integer,Materialer> materialeMap
+Calculator : Calculator()
+Calculator : udregnStolpeAntal()
+Calculator : udregnSpærAntal()
+Calculator : frontAndBackRemAntal()
+Calculator : sideRemAntal()
+Calculator : remPåTagetAntal()
+Calculator : udregnStolpePrice()
+Calculator : udregnSpærPrice()
+Calculator : remFrontogBackPrice()
+Calculator : remSidePris()
+Calculator : remSpærPris()
+
+Styklist : List<Item> stykListe
+Styklist : addItem()
+
+CarportMapper : CarportMapper()
+CarportMapper : List<Carport> carportList
+CarportMapper : creatOrder()
+
+UserFacade : login()
+UserFacade : createUser()
+
+UserMapper : UserMapper()
+UserMapper : login()
+UserMapper : createUser()
+
+Welcome : -ConnectionPool connectionPool
+Welcome : init()
+Welcome : doGet()
+Welcome : doPost()
+
+User : String getUsername
+User : String password
+User : String role
+User : String name
+User : String adresse
+User : String email
+User : int tlf
+User : User()
+User : getUsername()
+User : setUsername()
+User : getPassword()
+User : setPassword()
+User : getRole()
+User : setRole()
+User : getName()
+User : setName()
+User : getAdresse()
+User : setAdresse()
+User : getEmail()
+User : setEmail()
+User : getTlf()
+User : setTlf()
+User : equals()
+User : hashCode()
+User : toString()
+
+
+
 
 @enduml

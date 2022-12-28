@@ -1,8 +1,6 @@
 package dat.backend.model.services;
 
 
-import dat.backend.control.MaterialeMap;
-import dat.backend.model.entities.Carport;
 import dat.backend.model.entities.Materialer;
 
 import java.util.Map;
@@ -13,6 +11,17 @@ public class Calculator {
     int stolpePrice;
     int spærAntal;
     int spærPrice;
+    int frontAndBackRem = 2;
+    int sideRem = 2;
+    int remPåTaget = 2;
+    int tagplade = 0;
+    int antalBeslag = 30;
+    int antalSkruer = 2;
+    int remPrice;
+    int remSidePrice;
+    int remSpærPrice;
+    double carportPrice;
+    double moms = 1.25;
 
     private Map<Integer, Materialer> materialeMap;
 
@@ -21,9 +30,6 @@ public class Calculator {
         this.materialeMap = materialeMap;
     }
 
-    public Calculator() {
-
-    }
 
     public int udregnStolpeAntal(int lengthe) {
 
@@ -48,16 +54,12 @@ public class Calculator {
 
     }
 
-    public int udregnfrontAndBackRemAntal() {
-
-        int frontAndBackRem = 2;
+    public int frontAndBackRemAntal() {
 
         return frontAndBackRem;
     }
 
     public int sideRemAntal() {
-
-        int sideRem = 2;
 
         return sideRem;
 
@@ -65,14 +67,11 @@ public class Calculator {
 
     public int remPåTagetAntal() {
 
-        int remPåTaget = 2;
 
         return remPåTaget;
     }
 
     public int tagpladeAntal(int længde) {
-
-        int tagplade = 0;
 
         tagplade = (int) Math.ceil(længde / 3.6);
 
@@ -83,7 +82,6 @@ public class Calculator {
 
     public int antalBeslag() {
 
-        int antalBeslag = 30;
 
         return antalBeslag;
 
@@ -92,8 +90,6 @@ public class Calculator {
 
     public int antalSkruer() {
 
-        int antalSkruer = 2;
-
 
         return antalSkruer;
     }
@@ -101,9 +97,10 @@ public class Calculator {
 
     public int udregnStolpePrice() {
 
-        int unitPriceStolpe = materialeMap.get(1).getPrice_per_unit();
+        int unitPriceStolpe = materialeMap.get(11).getPrice_per_unit();
 
-        int stolpePrice = stolpeAntal * (3 * unitPriceStolpe);
+        stolpePrice = stolpeAntal * (3 * unitPriceStolpe);
+
         return stolpePrice;
         //int unitPrice = inde.price_per_unit
         // price = (antal x 3) X unitPrice
@@ -113,42 +110,50 @@ public class Calculator {
 
     public int udregnSpærPrice(int lengthe) {
 
-        int unitPriceSpær = materialeMap.get(1).getPrice_per_unit();
+        int unitPriceSpær = materialeMap.get(10).getPrice_per_unit();
 
-        int spærPrice = (spærAntal * lengthe) * unitPriceSpær;
+        spærPrice = (spærAntal * lengthe) * unitPriceSpær;
 
         return spærPrice;
     }
-
-    public int remFrontogBack(int width){
+    public int remFrontogBackPrice(int lengthe) {
 
         int unitPriceRem = materialeMap.get(1).getPrice_per_unit();
 
-        int remPrice = (2 * width) * unitPriceRem;
+        remPrice = (2 * lengthe) * unitPriceRem;
 
         return remPrice;
+
     }
+    
 
-    public int remSide(int width){
+    public int remSidePrice(int width){
 
-        int unitPriceRemSide = materialeMap.get(1).getPrice_per_unit();
-        int remSidePrice = 2 * width * unitPriceRemSide;
+        int unitPriceRemSide = materialeMap.get(2).getPrice_per_unit();
+
+        remSidePrice = 2 * width * unitPriceRemSide;
 
         return remSidePrice;
     }
 
-    public int remSpær(int width){
+    public int remSpærPrice(int lengthe){
 
-        int unitPriceRemSpær = materialeMap.get(1).getPrice_per_unit();
-        int remSpærPrice = 2 * width * unitPriceRemSpær;
+        int unitPriceRemSpær = materialeMap.get(8).getPrice_per_unit();
+
+        remSpærPrice = 2 * lengthe * unitPriceRemSpær;
+
         return remSpærPrice;
     }
 
-    public int totalCarportPrice(){
+    public double totalCarportPrice(){
+
         udregnStolpePrice();
-        int carportPrice = stolpePrice+stolpeAntal;
+
+        carportPrice = stolpePrice + stolpeAntal * (moms);
+
         return carportPrice;
     }
+
 }
 
 

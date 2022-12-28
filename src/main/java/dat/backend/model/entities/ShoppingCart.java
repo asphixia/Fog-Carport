@@ -1,6 +1,9 @@
 package dat.backend.model.entities;
 
 
+import dat.backend.control.Order;
+import dat.backend.model.services.Calculator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,14 +29,16 @@ public class ShoppingCart
         return carportList;
     }
 
-
     public void resetCart()
     {
         carportList.clear();
     }
 
-    public Carport getLastCarport() {
+    public Carport getLastCarport()
+    {
 
         return carportList.get(carportList.size()-1);
     }
+
+
 }

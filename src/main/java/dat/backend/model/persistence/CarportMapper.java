@@ -3,6 +3,7 @@ package dat.backend.model.persistence;
 import dat.backend.model.entities.*;
 
 
+import javax.servlet.ServletContext;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,9 +45,9 @@ public class CarportMapper {
         return carportList;
     }
 
-    public static void creatOrder(User user, ShoppingCart cart, ConnectionPool connectionPool) {
+    public static void creatOrder(User user, ShoppingCart cart, double price, ConnectionPool connectionPool) {
 
-        String sql = "insert into carport.ordres (username,width,lengthe,r_width,r_length) values (?,?,?,?,?)";
+        String sql = "insert into carport.ordres (username,width,lengthe,r_width,r_length,price) values (?,?,?,?,?,?)";
 
         try (Connection connection = connectionPool.getConnection()) {
             for (Carport carport : cart.getCarportList()) {
@@ -58,6 +59,7 @@ public class CarportMapper {
                     ps.setInt(3, carport.getLenghte());
                     ps.setInt(4, carport.getR_width());
                     ps.setInt(5, carport.getR_lenght());
+                    ps.setDouble(6,price);
                     ps.executeUpdate();
 
                 }

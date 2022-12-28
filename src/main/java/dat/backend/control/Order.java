@@ -16,8 +16,12 @@ import java.io.IOException;
 import java.util.Map;
 
 @WebServlet(name = "Order", value = "/order")
-public class Order extends HttpServlet {
+public class Order extends HttpServlet
+{
     private ConnectionPool connectionPool;
+
+
+
 
     @Override
     public void init() throws ServletException {
@@ -27,14 +31,15 @@ public class Order extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+        ShoppingCart cart1 = (ShoppingCart) session.getAttribute("cart");
+        if (cart1 == null) {
+            cart1 = new ShoppingCart();
+        }
 
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+
         User user = (User) session.getAttribute("user");
 
-
-        CarportFacade.creatOrder(user, cart, connectionPool);
-
-        ServletContext sc =  getServletContext();
         Map<Integer, Materialer> materialerMap = (Map<Integer, Materialer>) getServletContext().getAttribute("materialeMap");
         if (materialerMap == null)
         {
@@ -42,16 +47,20 @@ public class Order extends HttpServlet {
             getServletContext().setAttribute("materialerMap",materialerMap);
         }
         Calculator calculator = new Calculator(materialerMap);
-        int value = calculator.udregnStolpeAntal(cart.getLastCarport().getLenghte());
-        System.out.println(value);
-        int value2 = calculator.udregnStolpePrice();
-        int value3 = calculator.udregnfrontAndBackRemAntal();
-        int value4 = calculator.remFrontogBack(cart.getLastCarport().getWidth());
 
-        //System.out.println(calculator);
-        // calculator.antalSkruer();
+        double value = calculator.udregnStolpeAntal(cart.getLastCarport().getLenghte());
+        double value1 = calculator.udregnStolpePrice();
+        double value2 = calculator.udregnSpærAntal(cart.getLastCarport().getLenghte());
+        double value3 = calculator.udregnSpærPrice(cart.getLastCarport().getLenghte());
+        double value4 = calculator.frontAndBackRemAntal();
+        double value5 = calculator.remFrontogBackPrice(cart.getLastCarport().getWidth());
+        double value6 = calculator.remSidePrice(cart.getLastCarport().getLenghte());
+        double value7 = calculator.remSpærPrice(cart.getLastCarport().getLenghte());
+        double price = (value1 + value3 + value5 + value6 + value7 + calculator.totalCarportPrice());
 
+        CarportFacade.creatOrder(user, cart,price, connectionPool);
 
+        session.setAttribute("price",price);
         request.getRequestDispatcher("WEB-INF/order.jsp").forward(request, response);
 
     }
@@ -60,6 +69,7 @@ public class Order extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
+
 
         request.getRequestDispatcher("WEB-INF/order.jsp").forward(request, response);
 
