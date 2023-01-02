@@ -20,8 +20,8 @@
                                 <optgroup label="Carport width">
                                     <option>....................Vælge bredde til dit carport....................
                                     </option>
-                                    <option value="1">240 cm</option>
-                                    <option value="2">270 cm</option>
+                                    <option value="240">240 cm</option>
+                                    <option value="270">270 cm</option>
                                     <option value="3">300 cm</option>
                                     <option value="4">330 cm</option>
                                     <option value="5">360 cm</option>
@@ -45,9 +45,9 @@
                                     <optgroup label="Carport lengthe">
                                         <option>....................Vælge Længde til dit carport....................
                                         </option>
-                                        <option value="1">240 cm</option>
-                                        <option value="2">270 cm</option>
-                                        <option value="3">300 cm</option>
+                                        <option value="240">240 cm</option>
+                                        <option value="270">270 cm</option>
+                                        <option value="300">300 cm</option>
                                         <option value="4">330 cm</option>
                                         <option value="5">360 cm</option>
                                         <option value="6">390 cm</option>
@@ -73,8 +73,8 @@
                                 <div class="card-body text-center"><h5>Redskabsrum Bredde</h5>
                                     <label for="r_width"></label>
                                     <select name="r_width" id="r_width">
-                                        <optgroup label="redskabsrum width">
-                                            <option>....................Uden redskabsrum.....................</option>
+                                        <optgroup label="redskabsrum width" style="width: 40%">
+                                            <option>......................Uden redskabsrum.......................</option>
                                             <option value="1">210 cm</option>
                                             <option value="2">240 cm</option>
                                             <option value="3">270 cm</option>
@@ -127,6 +127,11 @@
                                         </select>
                                     </div>
                                     <br>
+                                    <br>
+
+                                    <br>
+                                    <br>
+
                                     <form>
                                         <h5>Kontakt samtykke</h5>
                                         <input type="radio" id="Fog" name="fav_language" value="">

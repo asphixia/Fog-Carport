@@ -48,6 +48,7 @@ public class Order extends HttpServlet
         }
         Calculator calculator = new Calculator(materialerMap);
 
+
         double value = calculator.udregnStolpeAntal(cart.getLastCarport().getLenghte());
         double value1 = calculator.udregnStolpePrice();
         double value2 = calculator.udregnSpærAntal(cart.getLastCarport().getLenghte());
@@ -56,11 +57,15 @@ public class Order extends HttpServlet
         double value5 = calculator.remFrontogBackPrice(cart.getLastCarport().getWidth());
         double value6 = calculator.remSidePrice(cart.getLastCarport().getLenghte());
         double value7 = calculator.remSpærPrice(cart.getLastCarport().getLenghte());
-        double price = (value1 + value3 + value5 + value6 + value7 + calculator.totalCarportPrice());
+        double value8 = calculator.antalHulband(cart.getLastCarport().getLenghte());
+        double price = (value1 + value3 + value5 + value6 + value7 + value8 + calculator.totalCarportPrice());
 
         CarportFacade.creatOrder(user, cart,price, connectionPool);
 
         session.setAttribute("price",price);
+
+        getServletContext().setAttribute("materialerMap",materialerMap);
+
         request.getRequestDispatcher("WEB-INF/order.jsp").forward(request, response);
 
     }

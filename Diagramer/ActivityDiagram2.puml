@@ -1,0 +1,20 @@
+@startuml
+Title FogCarport
+
+State index.jsp
+State login.jsp
+State welcome.jsp
+State order.jsp
+State betal.jsp
+
+State admin.jsp
+
+note right of login.jsp
+Username and role
+stored in session
+end note
+
+[*] --> index.jsp
+
+
+@enduml
