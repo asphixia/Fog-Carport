@@ -22,13 +22,13 @@
 
                                 <div class="w3-container w3-blue">
 
-                                    Carport Bredde på : ${sessionScope.cart.lastCarport.width} meter
+                                    Carport Bredde på : ${sessionScope.cart.lastCarport.width} cm
                                     <br>
-                                    Carport Længde på : ${sessionScope.cart.lastCarport.lenghte} meter
+                                    Carport Længde på : ${sessionScope.cart.lastCarport.lenghte} cm
                                     <br>
-                                    Redskabsrum bredde på : ${sessionScope.cart.lastCarport.r_width} meter
+                                    Redskabsrum bredde på : ${sessionScope.cart.lastCarport.r_width} cm
                                     <br>
-                                    Redskabsrum Længde på : ${sessionScope.cart.lastCarport.r_lenght} meter
+                                    Redskabsrum Længde på : ${sessionScope.cart.lastCarport.r_lenght} cm
                                     <br>
                                     Total Price: ${sessionScope.price} KR
                                     <br>
@@ -41,9 +41,11 @@
             </div>
         </div>
          <br>
-        <p>Carport demo</p>
+        <p>Carport SVG</p>
         <a href="svg">Se tegning</a>
         <br>
+
+
 
 
         <div class="container mt-3">

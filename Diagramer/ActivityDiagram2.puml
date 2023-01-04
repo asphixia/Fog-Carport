@@ -1,20 +1,41 @@
 @startuml
 Title FogCarport
 
-State index.jsp
-State login.jsp
-State welcome.jsp
-State order.jsp
-State betal.jsp
 
-State admin.jsp
-
-note right of login.jsp
+note left of login.jsp
 Username and role
 stored in session
 end note
 
-[*] --> index.jsp
+[*] -> index.jsp: starter her
+index.jsp --> login.jsp: log på
+index.jsp -->  creatUser.jsp: opret bruger
+index.jsp --> carport.jsp: se carport
+carport.jsp --> index.jsp: retur
+carport.jsp --> login.jsp
+login.jsp --> login.jsp: [fejl med login]
+login.jsp --> LoggeOn: log på [ok]
+creatUser.jsp --> login.jsp : log på
+creatUser.jsp --> index.jsp: retur
+
+State LoggeOn {
+State admin.jsp
+State welcome.jsp
+State order.jsp : se order og svg
+State svgdrawing.jsp
+State betal.jsp
+State matrialeMap.jsp
+[*] --> admin.jsp
+admin.jsp --> welcome.jsp
+welcome.jsp --> order.jsp
+order.jsp --> svgdrawing.jsp
+svgdrawing.jsp --> betal.jsp
+betal.jsp --> matrialeMap.jsp
+LoggeOn --> index.jsp: retur
+
+}
+
+
 
 
 @enduml

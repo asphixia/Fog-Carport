@@ -6,19 +6,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <t:pagetemplate>
-    <jsp:attribute name="header">
-         SVG drawing
-    </jsp:attribute>
 
-    <jsp:attribute name="footer">
-        SVG
-
-
-    </jsp:attribute>
     <jsp:body>
 
-
-        ${requestScope.svg}
+        <div class="container">
+            <hr/>
+            <div class="row mt-3">
+                    ${requestScope.svg}
+                <div class="col">
+                    <form action="betal">
+                        <button name="order">Betal</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="welcome">
+                        <button name="Back">Back</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 
     </jsp:body>

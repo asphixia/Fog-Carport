@@ -94,13 +94,13 @@
                         <div class="text-center">
                             <div class="form-group">
 
-                                Carport Bredde på : ${sessionScope.cart.lastCarport.width} meter
+                                Carport Bredde på : ${sessionScope.cart.lastCarport.width} cm
                                 <br>
-                                Carport Længde på : ${sessionScope.cart.lastCarport.lenghte} meter
+                                Carport Længde på : ${sessionScope.cart.lastCarport.lenghte} cm
                                 <br>
-                                Redskabsrum bredde på : ${sessionScope.cart.lastCarport.r_width} meter
+                                Redskabsrum bredde på : ${sessionScope.cart.lastCarport.r_width} cm
                                 <br>
-                                Redskabsrum Længde på : ${sessionScope.cart.lastCarport.r_lenght} meter
+                                Redskabsrum Længde på : ${sessionScope.cart.lastCarport.r_lenght} cm
                                 <br>
                                 <br>
                                 Total Price: ${sessionScope.price} KR

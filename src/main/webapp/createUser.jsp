@@ -28,7 +28,7 @@
                         <input type="text" id="username" name="username"><br>
 
                         <label for="password">Create password: </label><br>
-                        <input type="text" id="password" name="password"/><br>
+                        <input type="password" id="password" name="password"/><br>
 
                         <label for="userrole">Enter Role: </label><br>
                         <input type="text" id="userrole" name="userrole"/><br>

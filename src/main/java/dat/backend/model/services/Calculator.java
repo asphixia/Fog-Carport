@@ -1,6 +1,8 @@
 package dat.backend.model.services;
 
 
+import dat.backend.control.MaterialeMap;
+import dat.backend.model.entities.Carport;
 import dat.backend.model.entities.Materialer;
 
 import java.util.Map;
@@ -8,46 +10,41 @@ import java.util.Map;
 public class Calculator {
 
     int stolpeAntal;
-    int antal;
     double stolpePrice;
     int spærAntal;
-    double spærPrice;
+    int spærPrice;
     double remSidePrice;
+    int remPåTaget = 2;
     double remPrice;
     double remSpærPrice;
-    int tagplade = 0;
+    double tagplade=0;
     double tagpladePris = 0;
     double længde;
     double bredde;
-    double antalPakker = 0;
-    double unitTagplade;
-    double unitPriceStolpe;
-    double unitPriceSpær;
-    double unitPriceRem;
-    double unitPriceRemSide;
-
-
-
+    double antalPakker=0;
+    int antalSkruerUniversal;
+    int hulband;
+    int antalbolt;
+    int antalskiver;
+    double tagetpris;
     int frontAndBackRem = 2;
-    int sideRem = 2;
-    int remPåTaget = 2;
-    int antalBeslag = 30;
-    int antalSkruer = 2;
-    double carportPrice;
-    double moms = 1.25;
 
     private Map<Integer, Materialer> materialeMap;
+
 
 
     public Calculator(Map<Integer, Materialer> materialeMap) {
         this.materialeMap = materialeMap;
     }
 
+    public Calculator() {
 
-    public int udregnStolpeAntal(int længde) {
+    }
+
+    public double udregnStolpeAntal(int længde) {   // Antal stolper er relateret til længden på carporten
 
 
-        if (længde >= 3) {
+        if (længde >= 300) {
 
             stolpeAntal = 6;
         } else {
@@ -58,10 +55,10 @@ public class Calculator {
     }
 
 
-    public int udregnSpærAntal(int længde) {
+    public double udregnSpærAntal(double længde) {
 
 
-        spærAntal = (int) Math.ceil(længde / 0.55);
+        spærAntal = (int) Math.ceil(længde / 55);
 
         return spærAntal;
 
@@ -69,10 +66,14 @@ public class Calculator {
 
     public int frontAndBackRemAntal() {
 
+        int frontAndBackRem = 2;
+
         return frontAndBackRem;
     }
 
     public int sideRemAntal() {
+
+        int sideRem = 2;
 
         return sideRem;
 
@@ -80,112 +81,100 @@ public class Calculator {
 
     public int remPåTagetAntal() {
 
+        int remPåTaget = 2;
 
         return remPåTaget;
     }
 
-    public int tagpladeAntal(int længde, int bredde) {
+    public double remPåTagetPris(){
 
-        tagplade = (int) Math.ceil((længde * bredde)/1.09);
+        double remPris = materialeMap.get(8).getPrice_per_unit() * 100;
+
+        tagetpris = remPåTaget * remPris;
+
+        return tagetpris;
+    }
+
+    public double tagpladeAntal(double længde, double bredde) {
+
+
+        tagplade = Math.ceil((længde * bredde) / 109);
+
 
         return tagplade;
 
 
     }
 
+
     public double tagpladePrice(double længde) {
-        if (længde <=3.6) {
+        if (længde <=360) {
 
-            unitTagplade = materialeMap.get(16).getPrice_per_unit();
+            double unitTagplade = materialeMap.get(16).getPrice_per_unit();
 
-            tagpladePris = tagplade * unitTagplade;
+            double tagpladePris = tagplade * unitTagplade;
+        } else {
+            double unitTagplade = materialeMap.get(15).getPrice_per_unit();
+
+            double tagpladePris = tagplade * unitTagplade;
         }
-        else {
-             unitTagplade = materialeMap.get(15).getPrice_per_unit();
-        }
+
         return tagpladePris;
     }
 
-
-
-
-
-    public int antalBeslag() {
-
-
-        return antalBeslag;
-
-
-    }
-
-    public int antalSkruer() {
-
-
-        return antalSkruer;
-    }
-
-
     public double udregnStolpePrice() {
 
-        unitPriceStolpe = materialeMap.get(11).getPrice_per_unit();
+        double unitPriceStolpe = materialeMap.get(1).getPrice_per_unit() * 100;
 
-        stolpePrice = (stolpeAntal * 3 * unitPriceStolpe);
-
+        double stolpePrice = (stolpeAntal * 3 * unitPriceStolpe);
         return stolpePrice;
-        //int unitPrice = inde.price_per_unit
-        // price = (antal x 3) X unitPrice
-
-        //return price;.getAttribute("materiale_Id", 4)
     }
+
 
     public double udregnSpærPrice(double længde) {
 
-         unitPriceSpær = materialeMap.get(10).getPrice_per_unit();
+        double unitPriceSpær = materialeMap.get(1).getPrice_per_unit() * 100;
 
-        spærPrice = ((spærAntal * længde) * unitPriceSpær);
+        double spærPrice =  ((spærAntal * længde) * unitPriceSpær);
 
         return spærPrice;
     }
-    public double remFrontogBackPrice(double bredde) {
 
-        unitPriceRem = materialeMap.get(1).getPrice_per_unit();
 
-        remPrice = (2 * bredde) * unitPriceRem;
+    public double remFrontogBackPrice(double bredde){
+
+        double unitPriceRem = materialeMap.get(1).getPrice_per_unit() * 100;
+
+        double remPrice = (2 * bredde) * unitPriceRem;
 
         return remPrice;
-
     }
-    
 
-    public double remSidePrice(double længde){
+    public double remSidePris(double længde){
 
-        unitPriceRemSide = materialeMap.get(1).getPrice_per_unit();
-
-        remSidePrice = 2 * bredde * unitPriceRemSide;
+        double unitPriceRemSide = materialeMap.get(1).getPrice_per_unit() * 100;
+        double remSidePrice = 2 * længde * unitPriceRemSide;
 
         return remSidePrice;
     }
 
-    public double remSpærPrice(double længde){
+    public double remSpærPris(double længde){
 
-        double unitPriceRemSpær = materialeMap.get(1).getPrice_per_unit();
+        double unitPriceRemSpær = materialeMap.get(1).getPrice_per_unit() * 100;
 
-        remSpærPrice = 2 * længde * unitPriceRemSpær;
+        double remSpærPrice = 2 * længde * unitPriceRemSpær;
 
         return remSpærPrice;
     }
 
     public double tagpladeSkruerPakkeAntal(double bredde,double længde) {
 
-        //double unitTagpladeSkruer = materialeMap.get(17).getPrice_per_unit();
-        // double antalPakkePerAreal =(3/(6*7.8)); // Length*width of carport
-
 
         double areal = bredde*længde; // Roof area of carport
-        if (areal <=6) {
+        if (areal <=60000) {
             antalPakker = 1;
         }
-        if (areal>6 && areal<15){
+        if (areal>60000 && areal<150000){
             antalPakker = 2;
         }
         else
@@ -215,45 +204,108 @@ public class Calculator {
 
     public double antalHulband(double længde){
 
-
-        if (længde<3) {
-            antal = 1;
+        if (længde<300) {
+            hulband = 1;
         } else
-            antal =2;
+            hulband =2;
 
-        return antal;
+        return hulband;
     }
 
     public double hulbandPris(){
 
         double prisPerAntal = materialeMap.get(18).getPrice_per_unit();
-        double pris = prisPerAntal*prisPerAntal;
+        double pris = prisPerAntal*hulband;
+
 
         return pris;
     }
 
 
-    public double sternOgVandbredSkruer(){        // Always one independent of carport dimensions
+    public int sternOgVandbredSkruer(){        // Always one independent of carport dimensions
+
         int pakkeAntalSternOgVandbred = 1;
         return pakkeAntalSternOgVandbred;
     }
 
     public double prisSternOgVandbredSkruer(){
 
-        int pris = materialeMap.get(20).getPrice_per_unit();
+        int pris = materialeMap.get(20).getPrice_per_unit() * 100;
 
         return pris;
     }
 
-    public double totalCarportPrice(){
+    public int skruerTilUniversalbeslag(double længde) {
 
-        udregnStolpePrice();
+        if (længde<300) {
 
-        carportPrice = stolpePrice + stolpeAntal * (moms);
+            antalSkruerUniversal = 1;
 
-        return carportPrice;
+        } if (længde>300 && længde <600)
+
+            antalSkruerUniversal =2;
+
+        else {
+            antalSkruerUniversal = 3;
+        }
+        return antalSkruerUniversal;
+
+
     }
 
+    public double skruerTilUniversalbeslagPris(){
+
+        int prisPerAntal = materialeMap.get(21).getPrice_per_unit();
+        int pris =prisPerAntal*antalSkruerUniversal;
+
+        return pris;
+    }
+
+    public int braeddeBolt(double længde){
+
+
+        if (længde<300) {
+            antalbolt = 12;  // 3 bolte per stolpe
+        } else
+            antalbolt =18;
+
+        return antalbolt;
+    }
+
+    public double braeddeboltPris(){
+
+        double prisPerBolt = materialeMap.get(22).getPrice_per_unit();
+        double pris = prisPerBolt*antalbolt;
+        return pris;
+
+
+    }
+
+
+    public int firkantSkiver( double længde){
+
+        if (længde<300) {
+            antalskiver = 8;  // 2 firkantskiver per stolpe
+        } else
+            antalskiver =12;
+
+        return antalskiver;
+    }
+
+
+    public double firkantSkiverPris(){
+
+        double prisPerSkive=materialeMap.get(23).getPrice_per_unit();
+        double pris = antalskiver*prisPerSkive;
+
+        return pris;
+    }
+
+
 }
+
+
+
+
 
 
