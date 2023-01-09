@@ -74,7 +74,8 @@
                                     <label for="r_width"></label>
                                     <select name="r_width" id="r_width">
                                         <optgroup label="redskabsrum width" style="width: 40%">
-                                            <option>......................Uden redskabsrum.......................</option>
+                                            <option>......................Uden redskabsrum.......................
+                                            </option>
                                             <option value="210">210 cm</option>
                                             <option value="240">240 cm</option>
                                             <option value="270">270 cm</option>
@@ -133,33 +134,40 @@
                                     <br>
                                 </div>
 
-                                    <form>
-                                        <h5>Kontakt samtykke</h5>
-                                        <input type="radio" id="Fog" name="fav_language" value="">
-                                        <label for="Fog">Fog må benytte de afgivne oplysninger til at kontakte
-                                            mig</label><br>
-                                        <label for="fog">i forbindelse med tilbud på QuickByg carport*</label>
-                                    </form>
+                                <form>
+                                    <h5>Kontakt samtykke</h5>
+                                    <input type="radio" id="Fog" name="fav_language" value="">
+                                    <label for="Fog">Fog må benytte de afgivne oplysninger til at kontakte
+                                        mig</label><br>
+                                    <label for="fog">i forbindelse med tilbud på QuickByg carport*</label>
+                                </form>
                             </div>
                         </div>
-        <br>
-
-        <div class="container mt-3">
-            <div class="text-center">
-            <hr/>
-            <div class="row mt-3">
-                <div class="col">
-                    <button name="AddToCart" class="btn btn-primary">AddToCart</button>
-                </div>
 
 
-                </div>
-                <div class="col">
-                    <form action="order">
-                        <button name="Order" class="btn btn-primary">See Cart</button>
-                    </form>
-                </div>
-        <br>
+                        <div class="container mt-3">
+                            <div class="text-center">
+                                <hr/>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <button name="AddToCart" class="btn btn-primary">AddToCart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="col">
+                                <form action="order">
+                                    <button name="Order" class="btn btn-primary">See Cart</button>
+                                </form>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </table>
+            </form>
+        </div>
+        </body>
 
 
         Antal linier i kurven: ${requestScope.cartsize}
@@ -180,6 +188,7 @@
         <br>
         <br>
         <br>
+
 
     </jsp:body>
 
