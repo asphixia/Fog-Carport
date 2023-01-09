@@ -20,7 +20,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: dodgerblue">
         <div class="container">
-            <a class="navbar-brand" href="index.jsp">
+            <a class="navbar-brand" href="/index.jsp">
                 <img src="${pageContext.request.contextPath}/images/Logo/Stor-Fog-logo.png" width="150px" class="img-fluid"/>
             </a>
 

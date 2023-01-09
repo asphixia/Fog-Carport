@@ -4,6 +4,13 @@
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate>
+    <jsp:attribute name="header">
+         Welcome to the frontpage
+    </jsp:attribute>
+
+    <jsp:attribute name="footer">
+        Welcome to the frontpage
+    </jsp:attribute>
 
     <jsp:body>
 
@@ -34,8 +41,7 @@
                 </form>
             </div>
         </div>
-        </div>
-        </div>
+
 
 
     </jsp:body>

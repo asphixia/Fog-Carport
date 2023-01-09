@@ -131,6 +131,7 @@
 
                                     <br>
                                     <br>
+                                </div>
 
                                     <form>
                                         <h5>Kontakt samtykke</h5>
@@ -138,11 +139,9 @@
                                         <label for="Fog">Fog må benytte de afgivne oplysninger til at kontakte
                                             mig</label><br>
                                         <label for="fog">i forbindelse med tilbud på QuickByg carport*</label>
-                                </div>
+                                    </form>
                             </div>
                         </div>
-                    </div>
-        </div>
         <br>
 
         <div class="container mt-3">
@@ -151,7 +150,8 @@
             <div class="row mt-3">
                 <div class="col">
                     <button name="AddToCart" class="btn btn-primary">AddToCart</button>
-                    </form>
+                </div>
+
 
                 </div>
                 <div class="col">
@@ -159,11 +159,6 @@
                         <button name="Order" class="btn btn-primary">See Cart</button>
                     </form>
                 </div>
-            </div>
-        </div>
-        </div>
-        </form>
-        </div>
         <br>
 
 

@@ -6,7 +6,7 @@
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
-        <welcome-file>order.jsp</welcome-file>
+        <welcome-file>home.html</welcome-file>
     </welcome-file-list>
 
     <error-page>
